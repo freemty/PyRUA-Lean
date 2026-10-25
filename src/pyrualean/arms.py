@@ -294,6 +294,9 @@ class ArmToolkit:
                     "env_steps": result.result.get("env_steps", steps_delta),
                     "terminated": self.robo._reported_success(),
                     "sandbox_flags": flags,
+                    # Host-side only (never sent to the model): the ledger
+                    # records this turn made, [first, end) into calls.jsonl.
+                    "ledger_span": [calls_before, len(self.robo._ledger)],
                 }
             )
             if flags:

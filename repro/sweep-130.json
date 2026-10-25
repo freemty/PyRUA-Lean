@@ -1,0 +1,898 @@
+{
+ "schema": "ora.suite-cells.v1",
+ "source": {
+  "rule": "LIBERO-Pro Task/Swap x 4 families x 10 tasks at one state; RoboTwin C2R lowest admitted g004 seed per task",
+  "converted_from": "/mnt/weka/home/hao.zhang/yuanbo/robot-harness-newmodels/experiments/open_models_g001/cells/small.json",
+  "converted_from_sha256": "38fab667ee23198fb2736e022a0fdef288cf76155db1f79a8db69bc8cece5f8c",
+  "libero_pro_cells": 80,
+  "robotwin_cells": 50,
+  "seed_manifests": {
+   "rule": "relabelled robot-harness seed manifest: same fields and RoboTwin revision; schema tag changed to ORA's, original manifest_sha256 verified, digest recomputed with ora.orchestrator.robotwin_evaluation.digest",
+   "directory": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130",
+   "file_sha256": {
+    "adjust_bottle": "77b913195b979f161d65b8799ef7f5925d8e5a451b48f610c40b03dd882fb30d",
+    "beat_block_hammer": "e6ee64762cb3a0d0be44a245b83bd0f4d2480b94e18ee8586c5f199a65286a2e",
+    "blocks_ranking_rgb": "3ffb8f07832f2b260dee427c3270db05d1fcbf5e4626553c6cbcf5ed476d21c3",
+    "blocks_ranking_size": "0e37da62efe9583312f3aa906c89bb53f67017fad702939ab799bf4a20db3231",
+    "click_alarmclock": "83a77a26606d9a5b299a79066a87fe019f6ecd19225bb9836c1ea8bfd0947801",
+    "click_bell": "5b528a525cbcb4918dead3d9fc3c9a246c3438823534649cdec2a1874e7c9a98",
+    "dump_bin_bigbin": "e822fec87f665488f532b9bb0cf019170eb69ff797c8fc35b8ab287341dc57c6",
+    "grab_roller": "243bdceb379131058a2abdfff9a148e6e378da83d70e5cfda7e4dc67201f44f4",
+    "handover_block": "945a7ca8552cefc399a41bb71a5e2be809e0be71fbec24bec9f53c99a789a7d4",
+    "handover_mic": "abaabc1e14f971dc2e691ea25601f38b7984412692bc07b49759f351d3e63f27",
+    "hanging_mug": "b0a7600ab108eaa211202b645008b9e19d10630d50af683fa00b2332a562cc05",
+    "lift_pot": "9ccfeadb748ae9b501541bd4bd264c3495b72114321cba8d7584a3f72d6bc805",
+    "move_can_pot": "f06727c7430bf78ac12301949d1ee616900154c57784ec2e3a0387cf45861c86",
+    "move_pillbottle_pad": "18fc85788ef7b50f2fc61f8162a07f1aeb0295156e1805101c89e1f2e800e8bd",
+    "move_playingcard_away": "b36a052c72e45383cf85a94229338247578b15a9ceff7b2f64fc699f4b2c6888",
+    "move_stapler_pad": "d44cef2ebf3b4bc0570bf52666f5a2449c1e51bee4d28e230e885cef05ee3030",
+    "open_laptop": "0cc2a3f2f960d1fcd65eebde68057f5017013a17058a2b41d7f6c36d1b8eb3ff",
+    "open_microwave": "6f2b9922161c3cabc7f661945a9f300e584e4b4f5dc815f177c9b2d44c0ca627",
+    "pick_diverse_bottles": "2c9f8fd03a2a77b81ea8cf7f59af6a9fdae65590662dd8e713ca141ce24020d9",
+    "pick_dual_bottles": "619438fa85e427b7feb2f52cd0170ecf8d78c91d654b27ee19f87978851b1d56",
+    "place_a2b_left": "693228d49fa675e26a45b38e9b7d1db8b8c4fa13b1f111345bb1bd7d3dc0a5c3",
+    "place_a2b_right": "79b06345e4c7db852c96f2320fd85dc4228d34ac62218f3870c197ea9054b5d1",
+    "place_bread_basket": "014b60f9181b38f149a463bfdf443e6c4d2a74e93bfb6cff31119ee2f6ac646d",
+    "place_bread_skillet": "c07ade969a0e7bd1815d12a710a42f640b87670f5027cb97b477696795cd7763",
+    "place_burger_fries": "b991ff039ba02c1c7a143c26cc69870647f2d0e6d0ea75ec518dd318829f029b",
+    "place_can_basket": "08f6f31a05b043c191d1e6e50a2e0b56fb3801392ac66aba4056ff164c5b8c52",
+    "place_cans_plasticbox": "6b5c1873e1c5850d9248df262ddb189386bdefa2a4d75ef14d9d544bc029f5b2",
+    "place_container_plate": "86043f820c197056f9d302b347b8ee10943c52cb7243fd4f937bc3c01d29433b",
+    "place_dual_shoes": "b79cbafbe124b245566d151de2c8813d8489bfccdda603487bcfd5c046476493",
+    "place_empty_cup": "a60f38fddcd5e68fc410ca7ce90f85c7982fa664b06e78abd9bf63241144ef89",
+    "place_fan": "9095eec3f079c1bcee582961d7e4a82dc50eb26afda91afb0fccaa04916a411a",
+    "place_mouse_pad": "167b38146c35200f528b1a318499ede392f35a21b2cbc6a01873f5581d534a57",
+    "place_object_basket": "3650d7bc064f6e586799c70f9b977c23b3aba10dfddf72be81688440d6ddf867",
+    "place_object_scale": "d11b9e98a1d29989a17aed2a66605f3f5ea76e8e0ca50f6ba47327a387612b31",
+    "place_object_stand": "224a3d102ffb491e915bb3e559c2496d518077c68e1bb2b9256e6f99fa44b5ec",
+    "place_phone_stand": "42e202fc9112e83eb3ac9473bca56a9c3f8e0d86c551863a266021ac84de9f7e",
+    "place_shoe": "95901e60c7bf177e3e7144b5bfa5944346587fe92b506b8ec4f78fe5176374a0",
+    "press_stapler": "1b15fd2593027e28d3aba7aebeb90d33c808e30c5aab2341d9a40d584ef5c370",
+    "put_bottles_dustbin": "bbcd7a1ec33ec4c66f19038e42a0f5715904404d47ab330a480f5be2b0948447",
+    "put_object_cabinet": "62355ab869fa68829c5ab13261b73c05aae3b6c7c8261baa7bad186e37c0de4a",
+    "rotate_qrcode": "451027c3666af1c78c863f75457bb78366dc5f6b482f142d5fb34adb0eb03747",
+    "scan_object": "cb6627a543de123e973f1eb4a30f62ba04c5eb54be51d1976674442385e7625f",
+    "shake_bottle": "93c280a3c975aa6f8c2a4d52f5c01664fdde8f7fa9887370b9cb80defa89a342",
+    "shake_bottle_horizontally": "95fcd9552d9ac6f9b91e012bfc918a4f99f484a55e653433d3e3a5930fc73360",
+    "stack_blocks_three": "6abcdc2b7f6013581ad0824fe6e58f5ff9ce7a6563c1d55a651058f9a1d2630b",
+    "stack_blocks_two": "9e582c60c889d2553e79c34721661a9a592a78b5d69e18c228420dd0e2c2c749",
+    "stack_bowls_three": "afbcb0d4a87bd8ae71d75ac1a9afd5290c8faa7c2ad8b83eebcca0f6c97c3654",
+    "stack_bowls_two": "c472c370857c4ac7eddbf65af99e2fd1ad86517830eedbba4fc09855eed33ff7",
+    "stamp_seal": "217cacdad3599dc78ffaefa4c172fe11cca2d883a5a719b63a13be6f29e615cb",
+    "turn_switch": "a80bdce1dcde47465732236b97305c1ab67d7dc57e8a0b3cc14d31113d26a2ed"
+   }
+  }
+ },
+ "cells": [
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_task",
+   "task_id": 0,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_task",
+   "task_id": 1,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "adjust_bottle",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/adjust_bottle-77b913195b979f16.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_task",
+   "task_id": 2,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_task",
+   "task_id": 3,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "beat_block_hammer",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/beat_block_hammer-e6ee64762cb3a0d0.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_task",
+   "task_id": 4,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_task",
+   "task_id": 5,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "blocks_ranking_rgb",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/blocks_ranking_rgb-3ffb8f07832f2b26.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_task",
+   "task_id": 6,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_task",
+   "task_id": 7,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "blocks_ranking_size",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/blocks_ranking_size-0e37da62efe95833.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_task",
+   "task_id": 8,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_task",
+   "task_id": 9,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "click_alarmclock",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/click_alarmclock-83a77a26606d9a5b.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_swap",
+   "task_id": 0,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_swap",
+   "task_id": 1,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "click_bell",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/click_bell-5b528a525cbcb491.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_swap",
+   "task_id": 2,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_swap",
+   "task_id": 3,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "dump_bin_bigbin",
+   "seed": 100003,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/dump_bin_bigbin-e822fec87f665488.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_swap",
+   "task_id": 4,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_swap",
+   "task_id": 5,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "grab_roller",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/grab_roller-243bdceb37913105.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_swap",
+   "task_id": 6,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_swap",
+   "task_id": 7,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "handover_block",
+   "seed": 100001,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/handover_block-945a7ca8552cefc3.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_swap",
+   "task_id": 8,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_spatial_swap",
+   "task_id": 9,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "handover_mic",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/handover_mic-abaabc1e14f971dc.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_task",
+   "task_id": 0,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_task",
+   "task_id": 1,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "hanging_mug",
+   "seed": 100002,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/hanging_mug-b0a7600ab108eaa2.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_task",
+   "task_id": 2,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_task",
+   "task_id": 3,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "lift_pot",
+   "seed": 100001,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/lift_pot-9ccfeadb748ae9b5.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_task",
+   "task_id": 4,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_task",
+   "task_id": 5,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "move_can_pot",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/move_can_pot-f06727c7430bf78a.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_task",
+   "task_id": 6,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_task",
+   "task_id": 7,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "move_pillbottle_pad",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/move_pillbottle_pad-18fc85788ef7b50f.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_task",
+   "task_id": 8,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_task",
+   "task_id": 9,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "move_playingcard_away",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/move_playingcard_away-b36a052c72e45383.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_swap",
+   "task_id": 0,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_swap",
+   "task_id": 1,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "move_stapler_pad",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/move_stapler_pad-d44cef2ebf3b4bc0.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_swap",
+   "task_id": 2,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_swap",
+   "task_id": 3,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "open_laptop",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/open_laptop-0cc2a3f2f960d1fc.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_swap",
+   "task_id": 4,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_swap",
+   "task_id": 5,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "open_microwave",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/open_microwave-6f2b9922161c3cab.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_swap",
+   "task_id": 6,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_swap",
+   "task_id": 7,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "pick_diverse_bottles",
+   "seed": 100001,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/pick_diverse_bottles-2c9f8fd03a2a77b8.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_swap",
+   "task_id": 8,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_object_swap",
+   "task_id": 9,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "pick_dual_bottles",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/pick_dual_bottles-619438fa85e427b7.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_task",
+   "task_id": 0,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_task",
+   "task_id": 1,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_a2b_left",
+   "seed": 100004,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_a2b_left-693228d49fa675e2.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_task",
+   "task_id": 2,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_task",
+   "task_id": 3,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_a2b_right",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_a2b_right-79b06345e4c7db85.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_task",
+   "task_id": 4,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_task",
+   "task_id": 5,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_bread_basket",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_bread_basket-014b60f9181b38f1.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_task",
+   "task_id": 6,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_task",
+   "task_id": 7,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_bread_skillet",
+   "seed": 100001,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_bread_skillet-c07ade969a0e7bd1.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_task",
+   "task_id": 8,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_task",
+   "task_id": 9,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_burger_fries",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_burger_fries-b991ff039ba02c1c.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_swap",
+   "task_id": 0,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_swap",
+   "task_id": 1,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_can_basket",
+   "seed": 100001,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_can_basket-08f6f31a05b043c1.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_swap",
+   "task_id": 2,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_swap",
+   "task_id": 3,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_cans_plasticbox",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_cans_plasticbox-6b5c1873e1c5850d.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_swap",
+   "task_id": 4,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_swap",
+   "task_id": 5,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_container_plate",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_container_plate-86043f820c197056.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_swap",
+   "task_id": 6,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_swap",
+   "task_id": 7,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_dual_shoes",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_dual_shoes-b79cbafbe124b245.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_swap",
+   "task_id": 8,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_goal_swap",
+   "task_id": 9,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_empty_cup",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_empty_cup-a60f38fddcd5e68f.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_task",
+   "task_id": 0,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_task",
+   "task_id": 1,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_fan",
+   "seed": 100002,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_fan-9095eec3f079c1bc.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_task",
+   "task_id": 2,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_task",
+   "task_id": 3,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_mouse_pad",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_mouse_pad-167b38146c35200f.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_task",
+   "task_id": 4,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_task",
+   "task_id": 5,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_object_basket",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_object_basket-3650d7bc064f6e58.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_task",
+   "task_id": 6,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_task",
+   "task_id": 7,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_object_scale",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_object_scale-d11b9e98a1d29989.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_task",
+   "task_id": 8,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_task",
+   "task_id": 9,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_object_stand",
+   "seed": 100001,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_object_stand-224a3d102ffb491e.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_swap",
+   "task_id": 0,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_swap",
+   "task_id": 1,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_phone_stand",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_phone_stand-42e202fc9112e83e.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_swap",
+   "task_id": 2,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_swap",
+   "task_id": 3,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "place_shoe",
+   "seed": 100001,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/place_shoe-95901e60c7bf177e.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_swap",
+   "task_id": 4,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_swap",
+   "task_id": 5,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "press_stapler",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/press_stapler-1b15fd2593027e28.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_swap",
+   "task_id": 6,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_swap",
+   "task_id": 7,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "put_bottles_dustbin",
+   "seed": 100005,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/put_bottles_dustbin-bbcd7a1ec33ec4c6.json"
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_swap",
+   "task_id": 8,
+   "seed": 1
+  },
+  {
+   "environment": "libero_pro",
+   "suite": "libero_10_swap",
+   "task_id": 9,
+   "seed": 1
+  },
+  {
+   "environment": "robotwin",
+   "task": "put_object_cabinet",
+   "seed": 100032,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/put_object_cabinet-62355ab869fa6882.json"
+  },
+  {
+   "environment": "robotwin",
+   "task": "rotate_qrcode",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/rotate_qrcode-451027c3666af1c7.json"
+  },
+  {
+   "environment": "robotwin",
+   "task": "scan_object",
+   "seed": 100007,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/scan_object-cb6627a543de123e.json"
+  },
+  {
+   "environment": "robotwin",
+   "task": "shake_bottle",
+   "seed": 100001,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/shake_bottle-93c280a3c975aa6f.json"
+  },
+  {
+   "environment": "robotwin",
+   "task": "shake_bottle_horizontally",
+   "seed": 100001,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/shake_bottle_horizontally-95fcd9552d9ac6f9.json"
+  },
+  {
+   "environment": "robotwin",
+   "task": "stack_blocks_three",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/stack_blocks_three-6abcdc2b7f601358.json"
+  },
+  {
+   "environment": "robotwin",
+   "task": "stack_blocks_two",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/stack_blocks_two-9e582c60c889d255.json"
+  },
+  {
+   "environment": "robotwin",
+   "task": "stack_bowls_three",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/stack_bowls_three-afbcb0d4a87bd8ae.json"
+  },
+  {
+   "environment": "robotwin",
+   "task": "stack_bowls_two",
+   "seed": 100000,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/stack_bowls_two-c472c370857c4ac7.json"
+  },
+  {
+   "environment": "robotwin",
+   "task": "stamp_seal",
+   "seed": 100003,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/stamp_seal-217cacdad3599dc7.json"
+  },
+  {
+   "environment": "robotwin",
+   "task": "turn_switch",
+   "seed": 100001,
+   "task_config": "demo_randomized",
+   "seed_manifest": "/mnt/weka/shrd/hao/yuanbo/b2/ora-seed-manifests/sweep-130/turn_switch-a80bdce1dcde4746.json"
+  }
+ ]
+}
