@@ -43,3 +43,17 @@ Run on fs-mbz-gpu-062 cards 4-7, 2026-10-25/26 (UTC). Outputs:
   initial state 1 is not ORA's scene. The other six suites (60 cells) are byte-identical in BDDL and init files.
 - RoboTwin: same task names and seeds as ORA (`demo_randomized`); the asset root uses RoboTwin2.0's pinned
   `embodiments.zip` (c15cc97) with background textures and objects from the existing tree (identical by LFS hash).
+
+## Results (final, 2026-10-26 21:45 UTC)
+
+One episode per cell; `repro/export_index.py` writes the per-cell table, `repro/board_section.py` the summaries.
+
+| | 4B | VLA only | only 4B | only VLA | sign test |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| LIBERO-Pro, 77 paired cells | 37 | 34 | 11 | 8 | p ≈ 0.65 |
+| LIBERO-Pro, 60 cells with ORA's scene | 32 | 26 | 11 | 5 | p ≈ 0.21 |
+| RoboTwin, 50 paired cells | 18 | 24 | 3 | 9 | p ≈ 0.15 |
+
+- LIBERO: 35 of 37 4B successes had the predicate fire inside a π0.5 call; median VLA share of sim steps 0.67.
+- RoboTwin: 16 of 18 4B successes had no scripted motion at all; every 4B failure (32) ran out the 5,400 s.
+- Interpretation and caveats: ORA's peer note `internal/research/peers/pyrua-lean.md` (freemty/ora-dev).

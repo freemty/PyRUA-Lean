@@ -12,6 +12,6 @@ export HF_HUB_OFFLINE=1 VLLM_ENGINE_READY_TIMEOUT_S=3600 TMPDIR=/tmp/pyrua-coder
 echo "== $(hostname) $(date -u +%FT%TZ) coder-4b card $CARD port $PORT"
 exec "$V/bin/vllm" serve "$MODEL" --served-model-name DAGroup-PKU/PyRUA-Lean-Coder-v0.1-4B \
   --host 127.0.0.1 --port "$PORT" --tensor-parallel-size 1 --max-model-len 65536 \
-  --gpu-memory-utilization 0.80 --enable-prefix-caching --max-num-seqs 64 \
+  --gpu-memory-utilization ${UTIL:-0.80} --enable-prefix-caching --max-num-seqs 64 \
   --limit-mm-per-prompt '{"image": 64, "video": 0}' \
   --reasoning-parser qwen3 --enable-auto-tool-choice --tool-call-parser qwen3_coder
