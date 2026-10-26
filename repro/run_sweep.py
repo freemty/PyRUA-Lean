@@ -81,13 +81,21 @@ def main() -> int:
     ap.add_argument("--limit", type=int)
     ap.add_argument("--primitives", default="full", choices=["full", "no-vla"])
     ap.add_argument("--no-guides", dest="guides", action="store_false")
+    ap.add_argument("--stagger-s", type=float, default=45.0, help="delay between the first episodes' starts")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
     cells = json.loads(args.cells.read_text())["cells"]
     if args.only:
         cells = [c for c in cells if (c["environment"] == "libero_pro") == (args.only == "libero")]
-    cells = [c for c in cells if not (args.out / cell_id(c) / "result.json").exists()]
+    def done(c: dict) -> bool:
+        path = args.out / cell_id(c) / "result.json"
+        if not path.exists():
+            return False
+        # A boot error is the infrastructure's, not the model's: run the cell again.
+        return json.loads(path.read_text()).get("status") != "boot_error"
+
+    cells = [c for c in cells if not done(c)]
     if args.limit:
         cells = cells[: args.limit]
     devices = itertools.cycle(args.cuda_devices.split(","))
@@ -95,14 +103,22 @@ def main() -> int:
     args.out.mkdir(parents=True, exist_ok=True)
     print(f"{len(cells)} cells to run", flush=True)
 
+    starts = itertools.count()
+
     def run(cell: dict) -> tuple[str, int, float]:
         with lock:
             device = next(devices)
+            order = next(starts)
+        if not args.dry_run and order < max(args.libero_parallel, args.robotwin_parallel):
+            time.sleep(order * args.stagger_s)
         cid = cell_id(cell)
         argv = argv_for(cell, args.out, args, device)
         if args.dry_run:
             print(" ".join(argv))
             return cid, 0, 0.0
+        if (args.out / cid).exists():
+            import shutil
+            shutil.rmtree(args.out / cid)  # a previous boot error or a killed attempt
         (args.out / cid).mkdir(parents=True, exist_ok=True)
         started = time.time()
         with (args.out / cid / "play.log").open("w") as log:

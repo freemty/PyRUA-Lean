@@ -40,6 +40,9 @@ def episode(run: Path) -> dict | None:
     if not result_path.exists():
         return None
     result = json.loads(result_path.read_text())
+    if result.get("status") == "boot_error":
+        return {"cell": run.name, "robot": "libero" if run.name.startswith("lp-") else "robotwin",
+                "boot_error": True, "error": result.get("error")}
     robot = "libero" if run.name.startswith("lp-") else "robotwin"
     vla = VLA[robot]
     calls = load_jsonl(run / "calls.jsonl")
@@ -49,7 +52,14 @@ def episode(run: Path) -> dict | None:
     vla_calls = [c for c in calls if c.get("tool") in vla]
     steps = sum(c.get("env_steps") or 0 for c in calls)
     vla_steps = sum(c.get("env_steps") or 0 for c in vla_calls)
-    closing = next((c for c in calls if (c.get("summary") or {}).get("terminated")), None)
+    # The call during which the task predicate first fired. A read-only call (state, artifact) can be the
+    # first to report it after a motion finished; the predicate fired during the last stateful call before it.
+    closing = None
+    for i, c in enumerate(calls):
+        if (c.get("summary") or {}).get("terminated"):
+            closing = c if c.get("stateful") else next(
+                (p for p in reversed(calls[:i]) if p.get("stateful")), c)
+            break
     per_cell = [t["ledger_span"][1] - t["ledger_span"][0] for t in cells if "ledger_span" in t]
     motion_non_vla = [c for c in stateful if c["tool"] not in vla and c["tool"] not in GRIPPER]
     if not vla_calls:
@@ -76,6 +86,7 @@ def episode(run: Path) -> dict | None:
         "steps": steps,
         "vla_step_share": (vla_steps / steps) if steps else None,
         "scripted_motion_calls": len(motion_non_vla),
+        "scripted_step_share": (sum(c.get("env_steps") or 0 for c in motion_non_vla) / steps) if steps else None,
         "closing_tool": closing["tool"] if closing else None,
         "closed_by_vla": bool(closing and closing["tool"] in vla),
         "calls_per_cell": per_cell,
@@ -113,6 +124,8 @@ def summarise(rows: list[dict]) -> dict:
             "median_vla_share_of_stateful": median([r["vla_share_of_stateful"] for r in group]),
             "median_vla_step_share": median([r["vla_step_share"] for r in group]),
             "median_vla_step_share_success": median([r["vla_step_share"] for r in won]),
+            "success_vla_step_share_ge_0_9": sum((r["vla_step_share"] or 0) >= 0.9 for r in won),
+            "success_without_any_scripted_motion": sum(r["scripted_motion_calls"] == 0 for r in won),
             "median_input_tokens": median([r["input_tokens"] for r in group]),
             "tool_mix": dict(sum((Counter(r["tool_mix"]) for r in group), Counter()).most_common(15)),
         }
@@ -123,6 +136,8 @@ def markdown(summary: dict, rows: list[dict]) -> str:
     lines = ["| | episodes | success | used VLA | success closed by VLA | median cells | median calls/cell | median VLA share of stateful calls | median VLA share of sim steps |",
              "|---|---:|---:|---:|---:|---:|---:|---:|---:|"]
     for robot, s in summary.items():
+        if robot == "boot_errors":
+            continue
         lines.append(f"| {robot} | {s['episodes']} | {s['success']} | {s['episodes_using_vla']} | {s['success_closed_by_vla']} | "
                      f"{s['median_cells']} | {s['median_calls_per_cell']} | {s['median_vla_share_of_stateful']} | {s['median_vla_step_share']} |")
     lines += ["", "| cell | success | pattern | cells | calls | VLA calls | scripted motion | closing call | VLA step share |",
@@ -140,8 +155,10 @@ def main() -> None:
     ap.add_argument("--json", type=Path)
     ap.add_argument("--md", type=Path)
     args = ap.parse_args()
-    rows = [e for run in sorted(args.out.iterdir()) if run.is_dir() and (e := episode(run))]
+    found = [e for run in sorted(args.out.iterdir()) if run.is_dir() and (e := episode(run))]
+    rows = [e for e in found if not e.get("boot_error")]
     summary = summarise(rows)
+    summary["boot_errors"] = [e["cell"] for e in found if e.get("boot_error")]
     (args.json or args.out / "summary.json").write_text(json.dumps({"summary": summary, "episodes": rows}, indent=1))
     (args.md or args.out / "summary.md").write_text(markdown(summary, rows))
     print(json.dumps(summary, indent=1))
