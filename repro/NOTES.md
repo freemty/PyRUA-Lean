@@ -24,6 +24,10 @@ Run on fs-mbz-gpu-062 cards 4-7, 2026-10-25/26 (UTC). Outputs:
 3. **RPent `env.reset` timeout** raised from 120 s to 600 s in our RPent clone
    (`rpent/robots/components/env_client_base.py`) after RoboTwin resets timed out under load (and click_bell
    three times). It changes only how long the client waits.
+   The RoboTwin runtime has a second 120 s limit on the server side (`robotwin/envs/vector_env.py`,
+   `future.result(timeout=120)` around `setup_demo`, which raises an empty `TimeoutError`); raised to 600 s in our
+   venv on 2026-10-26 04:55 after place_burger_fries, place_mouse_pad and place_dual_shoes hit it (original kept as
+   `b2/pyrua-lean/setup/vector_env.py.orig`).
 4. **Boot errors are rerun**: an episode whose host failed before the agent started (`status: boot_error`) is the
    infrastructure's and is run again (`run_sweep.py`); every other outcome counts as the cell's one attempt.
 
