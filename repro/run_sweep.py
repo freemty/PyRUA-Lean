@@ -38,6 +38,17 @@ def cell_id(cell: dict) -> str:
 
 
 def argv_for(cell: dict, out: Path, args: argparse.Namespace, device: str) -> list[str]:
+    if args.policy_libero or args.policy_robotwin:
+        # A fixed program instead of the language model (pyrualean run): the VLA-only control.
+        libero = cell["environment"] == "libero_pro"
+        policy = args.policy_libero if libero else args.policy_robotwin
+        argv = ["pyrualean", "run", "--policy", str(policy), "--timeout-s", "5400",
+                "--out", str(out / cell_id(cell)), "--cuda-device", device]
+        if libero:
+            return argv + ["--robot", "libero", "--suite", cell["suite"], "--task", str(cell["task_id"]),
+                           "--seed", str(cell["seed"])]
+        return argv + ["--robot", "robotwin", "--task", cell["task"],
+                       "--suite", cell.get("task_config", "demo_randomized"), "--seed", str(cell["seed"])]
     common = [
         "--arm", "cells", "--runtime", "openai", "--base-url", args.base_url,
         "--api-key-env", "OPENAI_API_KEY", "--model", args.model,
@@ -81,6 +92,8 @@ def main() -> int:
     ap.add_argument("--limit", type=int)
     ap.add_argument("--primitives", default="full", choices=["full", "no-vla"])
     ap.add_argument("--no-guides", dest="guides", action="store_false")
+    ap.add_argument("--policy-libero", type=Path, help="run this policy file instead of the model (control)")
+    ap.add_argument("--policy-robotwin", type=Path, help="run this policy file instead of the model (control)")
     ap.add_argument("--stagger-s", type=float, default=45.0, help="delay between the first episodes' starts")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
@@ -116,6 +129,17 @@ def main() -> int:
         if args.dry_run:
             print(" ".join(argv))
             return cid, 0, 0.0
+        # Checked again at start: another launcher on the same OUT may have run or claimed the cell.
+        if done(cell):
+            return cid, 0, 0.0
+        claim = args.out / f".claim-{cid}"
+        try:
+            pid = int(claim.read_text().split()[0])
+            os.kill(pid, 0)
+            return cid, 0, 0.0  # a live process on this node runs it
+        except (FileNotFoundError, ValueError, IndexError, ProcessLookupError, PermissionError):
+            pass
+        claim.write_text(f"{os.getpid()} {time.time():.0f}\n")
         if (args.out / cid).exists():
             import shutil
             shutil.rmtree(args.out / cid)  # a previous boot error or a killed attempt

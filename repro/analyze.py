@@ -57,11 +57,11 @@ def episode(run: Path) -> dict | None:
     closing = None
     for i, c in enumerate(calls):
         if (c.get("summary") or {}).get("terminated"):
-            closing = c if c.get("stateful") else next(
-                (p for p in reversed(calls[:i]) if p.get("stateful")), c)
+            moved = lambda x: x.get("stateful") and (x.get("env_steps") or 0) > 0
+            closing = c if moved(c) else next((p for p in reversed(calls[:i + 1]) if moved(p)), c)
             break
     per_cell = [t["ledger_span"][1] - t["ledger_span"][0] for t in cells if "ledger_span" in t]
-    motion_non_vla = [c for c in stateful if c["tool"] not in vla and c["tool"] not in GRIPPER]
+    motion_non_vla = [c for c in stateful if c["tool"] not in vla and c["tool"] not in GRIPPER and (c.get("env_steps") or 0) > 0]
     if not vla_calls:
         pattern = "no_vla"
     elif closing is not None and closing["tool"] in vla:
